@@ -22,7 +22,11 @@ Ext.define('MyApp.view.main.Main', {
         'MyApp.view.users.usersFormWindow',
         'MyApp.view.users.userGridController',
         'MyApp.view.users.userGridModel',
-        'MyApp.view.users.userGrid'
+        'MyApp.view.users.userGrid',
+
+
+        'MyApp.view.Students.StudentGrid',
+        'MyApp.view.Students.StudentForm'
     ],
 
     //controller: 'main',
@@ -81,7 +85,7 @@ Ext.define('MyApp.view.main.Main', {
         }
     },
 
-    items: [ {
+    items: [{
         title: 'Home',
         iconCls: 'fa-home',
         // The following grid shares a store with the classic version's grid as well!
@@ -92,19 +96,40 @@ Ext.define('MyApp.view.main.Main', {
         title: 'Users',
         iconCls: 'fa-user',
         items: [{
-            xtype: 'button', 
-            text : 'Create User',
-          handler: function() {
-                      main = Ext.create('MyApp.view.users.usersFormWindow');
-                      main.show()	
-                   } 
-         },
-         {
-            xtype: 'userGrid'
-             
-         }
+            xtype: 'button',
+            x: 1000,
+            //y: 10,
+            //html: 'Positioned at x:1000, y:10',
+            text: 'Create User',
+
+            handler: function () {
+                main = Ext.create('MyApp.view.users.usersFormWindow');
+                main.show()
+            }
+        },
+
+            {
+                xtype: 'userGrid'
+
+            }
         ]
-    
+
+    },
+    {
+        title: 'Student',
+        iconCls: 'fa-user',
+        // The following grid shares a store with the classic version's grid as well!
+        items: [{
+            xtype: 'button',
+            text: 'addStudent',
+            x: 1000,
+            handler: function () {
+                main = Ext.create('MyApp.view.Students.StudentForm');
+                main.show()
+            }
+        },
+        {
+            xtype: 'StudentGrid'
+        }]
     }]
 });
- 

@@ -1,13 +1,13 @@
-Ext.define('MyApp.view.users.usersFormWindow', {
+Ext.define('MyApp.view.Students.StudentForm', {
     extend: 'Ext.window.Window',
 
-    alias: 'users.userform',
+    //alias: 'Students.StudentForm',
 
 
-    controller:'usersForm',
-    title: 'UserForm',
+    controller: 'studentFormController',
+    title: 'StudentForm',
     height: 450,
-    width: 300,    
+    width: 300,
     bodyPadding: 10,
     defaultType: 'textfield',
     items: {
@@ -31,28 +31,11 @@ Ext.define('MyApp.view.users.usersFormWindow', {
         },
         {
             xtype: 'textfield',
-            fieldLabel: 'MiddleName',
-            name: 'middlename',
-            allowBlank: false,
-            minLength: '3'
-        },
-        {
-            xtype: 'textfield',
             fieldLabel: 'LastName',
             name: 'lastname',
             allowBlank: false,
             minLength: '3'
 
-        },
-        {
-            xtype: 'numberfield',
-            fieldLabel: 'Age',
-            name: 'age',
-            allowBlank: false,
-            hideTrigger: true,
-            keyNavEnabled: false,
-            mouseWheelEnabled: true,
-            minValue: '0'
         },
         {
             xtype: 'radiogroup',
@@ -61,6 +44,7 @@ Ext.define('MyApp.view.users.usersFormWindow', {
             defaultType: 'radiofield',
             columns: 1,
             verticale: false,
+            allowBlank: false,
             items: [
                 {
                     boxLabel: 'Male',
@@ -78,22 +62,46 @@ Ext.define('MyApp.view.users.usersFormWindow', {
                     id: 'others'
                 }
             ]
+        },
+        {
+            xtype: 'combo',
+            fieldLabel: 'Class',
+            name: 'class',
+            //valueField: 'StudentClass',
+            queryMode: 'local',
+            store: ['1st', '2nd', '3rd', '4th', '5th'],
+            // displayField: 'class',
+            autoSelect: true,
+            forceSelection: true,
+            allowBlank: false,
+
+        },
+        {
+            xtype: 'numberfield',
+            fieldLabel: 'Marks',
+            name: 'marks',
+            allowBlank: false,
+            hideTrigger: true,
+            keyNavEnabled: false,
+            mouseWheelEnabled: true,
+            minValue: '0'
         }
+
         ],
 
         //xtype: 'button', 
         buttons: [
 
             {
-                text: 'submit',
-                handler:'OnSubmit' 
+                text: 'save',
+                handler: 'OnSave'
             },
 
             {
-                
+
                 text: 'Close',
-                handler:'closeWindow' 
-                
+                handler: 'Onclose'
+
 
             }
         ]

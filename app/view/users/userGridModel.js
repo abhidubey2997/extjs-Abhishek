@@ -6,11 +6,9 @@ Ext.define('MyApp.view.users.userGridModel', {
 
     stores: {
         userstore: {
-            type:'userstore'
+            type:'users.user'
             
         }
     }
-
-    
 });
 

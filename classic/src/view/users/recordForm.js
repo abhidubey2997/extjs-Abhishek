@@ -4,21 +4,21 @@ Ext.define('MyApp.view.users.recordForm', {
     width: 320,
     //Define xtype
     // xtype: 'userform',
-    alias: 'users.recordform',
+    alias: 'widget.recordform',
     model: true,
-    autoDestroy: false,
+    autoDestroy: true,
     floating: true,
     viewModel: {
-        type: 'recordForm'
+        type: 'recordFormvm'
     },
 
-   
+title: 'Record Form',
 
     layout: {
         align: 'stretch',
         type: 'vbox'
     },
-    
+
 
     defaults: {
         xtype: 'textfield',
@@ -32,40 +32,41 @@ Ext.define('MyApp.view.users.recordForm', {
         bind: {
             value: '{userData.id}'
         },
-        name: 'Id'
+        name: 'id'
     }, {
         fieldLabel: 'FirstName',
         bind: {
-            value: '{userData.FirstName}'
+            value: '{userData.firstname}'
         },
-        name: 'FirstName'
+        name: 'firstname'
 
     }, {
         fieldLabel: 'MiddleName',
         bind: {
-            value: '{userData.MiddleName}'
+            value: '{userData.middlename}'
         },
-        name: 'MiddleName'
+        name: 'middlename'
 
     }, {
         fieldLabel: 'LastName',
-        bind: '{lastName}'
-        //},
-        //name: 'LastName'
+        bind: {
+            value: '{userData.lastname}'
+        },
+        name: 'lastname'
 
     }, {
         fieldLabel: 'Age',
         bind: {
-            value: '{userData.dateOfBirth}'
+            value: '{userData.age}'
         },
-        name: 'Age'
+        name: 'age'
 
     }, {
         fieldLabel: 'Gender',
         bind: {
-            value: '{userData.Gender}'
+            value: '{userData.gender}'
         },
-        name: 'Gender'
+        name: 'gender'
 
     }],
 });
